@@ -49,10 +49,15 @@
                                      <li class="nav-item"><a class="nav-link" href="blog-details.html">My Blogs</a></li>
 
                                      <li class="nav-item">
-                                         <form action="{{ route('logout') }}" method="post">
+                                         {{-- <form action="{{ route('logout') }}" method="post">
                                              @csrf
                                              <a class="nav-link" href="javascript:$('form').submit();">Logout</a>
+                                         </form> --}}
+                                        <form id="logoutForm" action="{{ route('logout') }}" method="POST"
+                                         style="display: none;">
+                                         @csrf
                                          </form>
+                                         <a  class="nav-link" href="#" onclick="event.preventDefault(); $('#logoutForm').submit();">Logout</a>
                                      </li>
                                  </ul>
                              </li>

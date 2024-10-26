@@ -1,12 +1,12 @@
 <?php
 
+use App\Http\Controllers\ConatactController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ThemeController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\SubscriberController;
 
-
-
-
+//? theme Routes 
 Route::controller(ThemeController::class)->name('theme.')->group( function (){
     Route::get('/','index')->name('index');
     Route::get('/contact','contact')->name('contact');
@@ -15,6 +15,15 @@ Route::controller(ThemeController::class)->name('theme.')->group( function (){
     // Route::get('/register','register')->name('register');
     Route::get('/single-blog','singleblog')->name('single-blog');
 });
+
+
+
+//subscribers route 
+
+Route::post('/subscriber/store',[SubscriberController::class,'store'])->name('subscriber.store');
+
+//Contacts route 
+Route::post('/contact/store',[ConatactController::class,'store'])->name('contact.store');
 
 
 
